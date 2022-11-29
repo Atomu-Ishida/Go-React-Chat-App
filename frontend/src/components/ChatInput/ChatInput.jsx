@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import './ChatInput.scss'
+import './ChatInput.css'
 
 class ChatInput extends Component {
   render() {
@@ -10,3 +10,5 @@ class ChatInput extends Component {
     )
   }
 }
+
+export default ChatInput

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import './Message.scss'
+import './Message.css'
 
-class Message extends Message {
+class Message extends Component {
   constructor(props) {
     super(props)
     let temp = JSON.parse(this.props.message)
@@ -13,7 +13,7 @@ class Message extends Message {
   render() {
     return (
       <div className="Message">
-        {this.state.Message.body}
+        {this.state.message.body}
       </div>
     )
   }

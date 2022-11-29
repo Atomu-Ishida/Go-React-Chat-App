@@ -1,10 +1,14 @@
 import React, { Component } from "react";
-import './Header.scss'
+import './Header.css'
 
-const Header = () => {
-  <div className="header">
-    <h2>Go And React Chat App</h2>
-  </div>
+class Header extends Component {
+  render() {
+    return (
+      <div className="header" >
+        <h2>Go And React Chat App</h2>
+      </div>
+    )
+  }
 }
 
 export default Header

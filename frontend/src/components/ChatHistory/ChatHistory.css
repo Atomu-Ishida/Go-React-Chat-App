@@ -1,0 +1,9 @@
+.ChatHistory {
+  margin: 0;
+  padding: 20px;
+}
+.ChatHistory h2 {
+  margin: 0;
+  padding: 0;
+  color: white;
+}
