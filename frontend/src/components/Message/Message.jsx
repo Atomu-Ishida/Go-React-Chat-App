@@ -1,22 +1,15 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import './Message.css'
 
-class Message extends Component {
-  constructor(props) {
-    super(props)
-    let temp = JSON.parse(this.props.message)
-    this.state = {
-      message: temp
-    }
-  }
+const Message = ({ message }) => {
+  let temp = JSON.parse(message)
+  const [stateMessage, setStateMessage] = useState(temp)
 
-  render() {
-    return (
-      <div className="Message">
-        {this.state.message.body}
-      </div>
-    )
-  }
+  return (
+    <div className="Message">
+      {stateMessage.body}
+    </div>
+  )
 }
 
 export default Message
