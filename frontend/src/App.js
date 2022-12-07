@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Header from './components/Header/Header'
 import ChatHistory from "./components/ChatHistory/ChatHistory";
 import ChatInput from "./components/ChatInput/ChatInput";
@@ -6,18 +6,18 @@ import './App.css'
 import { connect, sendMsg } from './api'
 
 const App = () => {
-  const [chatHistory, setChatHistory] = React.useState([])
+  const [chatHistory, setChatHistory] = useState([]) // チャット履歴をstateで管理
 
-  React.useEffect(() => {
+  useEffect(() => { // useEffect内でstate更新をする
     connect((msg) => {
-      console.log("New Message")
-      setChatHistory((prevState) => ([...prevState, msg]))
+      console.log("新しいメッセージです")
+      setChatHistory([...chatHistory, msg])
       console.log(chatHistory)
     })
-  }, [])
+  }, [chatHistory])
 
-  const send = (event) => {
-    if (event.keyCode === 13) {
+  const send = (event) => { // チャットを送る関数
+    if (event.keyCode === 13) { // エンターキーが押されたときに実行
       sendMsg(event.target.value);
       event.target.value = "";
     }

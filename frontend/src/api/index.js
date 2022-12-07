@@ -1,28 +1,28 @@
-var socket = new WebSocket('ws://localhost:9000/ws')
+var socket = new WebSocket('ws://localhost:9000/ws') // Websocketオブジェクトを作成
 
 let connect = (cb) => {
-  console.log("connecting")
+  console.log("接続しています")
 
   socket.onopen = () => {
-    console.log("successfully connected")
+    console.log("接続完了！")
   }
 
-  socket.onmessage = (msg) => {
-    console.log("Message from websocket:", msg)
+  socket.onmessage = (msg) => { // websocketを通してメッセージを受け取った時に実行
+    console.log("メッセージを受信しました", msg)
     cb(msg)
   }
 
   socket.onclose = (event) => {
-    console.log("socket close connection:", event)
+    console.log("接続を切断します", event)
   }
 
   socket.onerror = (error) => {
-    console.log("socket error:", error)
+    console.log("エラーが起きました:", error)
   }
 }
 
 let sendMsg = (msg) => {
-  console.log("sending msg:", msg)
+  console.log("メッセージを送ります:", msg)
   socket.send(msg)
 }
 
